@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김지효 변호사 | Attorney Kim Ji-hyo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #3d3830;
+    --ink-muted: #8a8275;
+    --paper: #f7f4ef;
+    --paper-warm: #efe9df;
+    --gold: #b89a5e;
+    --gold-light: #d4b87a;
+    --rule: #d8d0c4;
+    --white: #fdfcfa;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    transition: all .4s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color .3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 6vw 80px 8vw;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 2.5rem; height: 1px;
+    background: var(--gold);
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: .6rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    color: var(--ink-muted);
+    letter-spacing: .08em;
+    margin-bottom: 2.5rem;
+  }
+  .hero-quote {
+    font-size: .95rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    max-width: 440px;
+    padding-left: 1.4rem;
+    border-left: 2px solid var(--gold);
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: .8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: .9rem 2rem;
+    border: 1px solid var(--ink);
+    transition: all .35s;
+  }
+  .hero-cta:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .hero-right {
+    position: relative;
+    background: var(--paper-warm);
+    overflow: hidden;
+  }
+  .hero-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: sepia(8%) contrast(1.05);
+    transition: transform .8s ease;
+  }
+  .hero-right:hover .hero-photo { transform: scale(1.03); }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--paper-warm) 0%, transparent 35%);
+    z-index: 1;
+  }
+  .hero-number {
+    position: absolute; bottom: 2.5rem; right: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    font-weight: 300;
+    color: rgba(184,154,94,0.12);
+    line-height: 1;
+    z-index: 2;
+    user-select: none;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 100px 8vw; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 0 0 2rem; height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+  }
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--rule);
+    margin: 0;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 8vw;
+    align-items: start;
+  }
+  .about-meta { padding-top: .5rem; }
+  .meta-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .meta-item:last-child { border-bottom: none; }
+  .meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .5rem;
+  }
+  .meta-value {
+    font-size: .95rem;
+    color: var(--ink-soft);
+  }
+  .meta-value a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color .3s;
+  }
+  .meta-value a:hover { border-color: var(--gold); }
+  .about-text p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 2;
+    margin-bottom: 1.6rem;
+  }
+  .motto-block {
+    margin-top: 2.5rem;
+    padding: 2rem 2.5rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--gold);
+  }
+  .motto-block blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .motto-block cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: .8rem;
+    font-style: normal;
+  }
+
+  /* ── CAREER ── */
+  #career { background: var(--paper); }
+  .career-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 6vw;
+  }
+  .career-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+    animation: fadeUp .6s ease both;
+  }
+  .career-year {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    color: var(--gold);
+    padding-top: .2rem;
+    white-space: nowrap;
+  }
+  .career-role {
+    font-size: .95rem;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: .2rem;
+  }
+  .career-org {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    color: var(--ink-muted);
+  }
+  .career-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    padding-bottom: .8rem;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  /* ── PRACTICE AREAS ── */
+  #practice {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  #practice .section-label { color: var(--gold-light); }
+  #practice .section-label::after { background: var(--gold-light); }
+  #practice .section-title { color: var(--paper); }
+  .practice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .practice-item {
+    padding: 2.5rem 2rem;
+    background: var(--ink);
+    transition: background .35s;
+    position: relative;
+    overflow: hidden;
+  }
+  .practice-item::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width .4s ease;
+  }
+  .practice-item:hover { background: #252018; }
+  .practice-item:hover::before { width: 100%; }
+  .practice-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: rgba(184,154,94,.2);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: color .35s;
+  }
+  .practice-item:hover .practice-num { color: rgba(184,154,94,.5); }
+  .practice-name {
+    font-size: .95rem;
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: .6rem;
+    line-height: 1.5;
+  }
+  .practice-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .08em;
+    color: rgba(215,205,190,.45);
+    line-height: 1.7;
+  }
+
+  /* ── BLOG ── */
+  #blog { background: var(--white); }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .blog-card {
+    background: var(--paper);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  .blog-card:hover {
+    background: var(--paper-warm);
+    border-bottom-color: var(--gold);
+  }
+  .blog-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .blog-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .blog-excerpt {
+    font-size: .85rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .blog-date {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    color: var(--ink-muted);
+  }
+  .blog-placeholder {
+    text-align: center;
+    padding: 5rem 2rem;
+    grid-column: 1/-1;
+    color: var(--ink-muted);
+    font-size: .9rem;
+    border: 2px dashed var(--rule);
+  }
+  .blog-placeholder span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--ink-soft);
+    margin-bottom: .5rem;
+  }
+
+  /* ── CONTACT STRIP ── */
+  #contact {
+    background: var(--paper-warm);
+    padding: 80px 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+  .contact-text { flex: 1; }
+  .contact-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    margin-bottom: .8rem;
+  }
+  .contact-text p {
+    font-size: .9rem;
+    color: var(--ink-muted);
+  }
+  .contact-details {
+    display: flex; flex-direction: column; gap: 1.2rem;
+  }
+  .contact-row {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .contact-icon {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    width: 2.5rem;
+  }
+  .contact-info {
+    font-size: .9rem;
+    color: var(--ink-soft);
+  }
+  .contact-info a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color .3s;
+  }
+  .contact-info a:hover { border-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--ink-muted);
+    padding: 2.5rem 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vw; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .career-grid { grid-template-columns: 1fr; }
+    .practice-grid { grid-template-columns: 1fr 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    #contact { flex-direction: column; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5vw; }
+    .practice-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">K<span>·</span>JH</a>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#career">경력</a></li>
+    <li><a href="#practice">업무분야</a></li>
+    <li><a href="#blog">글</a></li>
+    <li><a href="#contact">연락처</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Attorney at Law</div>
+    <h1 class="hero-name">김지효<br><em>Ji-hyo Kim</em></h1>
+    <p class="hero-title">파트너 변호사 · 법무법인 예헌</p>
+    <p class="hero-quote">우리 지금 여기에 진심을 —<br>어느 순간이건, 고객의 고민을 근본적으로 해결합니다.</p>
+    <a href="#about" class="hero-cta">About Me →</a>
+  </div>
+  <div class="hero-right">
+    <img src="https://cdn.prod.website-files.com/686234dc4abd4df4c4aaf10d/686234dc4abd4df4c4aaf239_800cf4f982150.jpg"
+         alt="김지효 변호사" class="hero-photo">
+    <div class="hero-overlay"></div>
+    <div class="hero-number">19</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-meta reveal">
+    <div class="section-label">About</div>
+    <div class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);">변호사<br>김지효</div>
+
+    <div class="meta-item">
+      <div class="meta-label">소속</div>
+      <div class="meta-value">파트너 변호사 · 법무법인 예헌</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Tel</div>
+      <div class="meta-value"><a href="tel:0234782001">02-3478-2001</a></div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Email</div>
+      <div class="meta-value"><a href="mailto:hyo@yehunlaw.com">hyo@yehunlaw.com</a></div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">자격</div>
+      <div class="meta-value">제50회 사법시험 합격 (2008)<br>제40기 사법연수원 수료 (2011)</div>
+    </div>
+  </div>
+
+  <div class="about-text reveal">
+    <p>김지효 변호사는 사법연수원 수료 후 대한법률구조공단, 법무부 본청에서 공익법무관으로 복무했습니다. 이후 2014년부터 법무법인 KCL 소속변호사로, 2017년부터는 삼성물산 건설부문으로 자리를 옮겨 수석변호사로 근무하였고, 7년간의 사내변호사 활동 후 2024년 4월 법무법인 예헌의 파트너 변호사로 합류했습니다.</p>
+    <p>기업전문 법무법인 소속변호사와 국내 굴지의 대기업 사내변호사를 두루 경험하며, 기업이 필요로 하는 다양한 업무를 수행하였습니다. 각종 경영이슈 자문, M&A, 인사·노무 등 핵심업무를 다수 처리하였을 뿐 아니라, 발주자, JV사, 하도사 등을 상대로 한 수많은 분쟁을 담당하여 많은 성과를 거두었습니다.</p>
+    <p>특히 건설 관련 시공 과정에서 발생한 산업재해에 대해 혐의없음 및 무죄를 이끌어 내었으며, 중대재해처벌법 대응 및 안전보건 관리체계 마련을 주도하였습니다.</p>
+
+    <div class="motto-block">
+      <blockquote>"우리 지금 여기에 진심을"</blockquote>
+      <cite>김지효 변호사의 좌우명</cite>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="section-label reveal">Career</div>
+  <h2 class="section-title reveal">경력 및 학력</h2>
+
+  <div class="career-grid">
+    <!-- 경력 -->
+    <div>
+      <div class="career-section-title reveal">경력</div>
+
+      <div class="career-item reveal">
+        <div class="career-year">2011–2014</div>
+        <div>
+          <div class="career-role">공익법무관</div>
+          <div class="career-org">대한법률구조공단 · 법무부 본청</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2014–2017</div>
+        <div>
+          <div class="career-role">소속변호사</div>
+          <div class="career-org">법무법인 KCL</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2017–2024</div>
+        <div>
+          <div class="career-role">수석변호사</div>
+          <div class="career-org">삼성물산 건설부문</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2024 –</div>
+        <div>
+          <div class="career-role">파트너 변호사</div>
+          <div class="career-org">법무법인 예헌</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2016–2017</div>
+        <div>
+          <div class="career-role">멘토변호사</div>
+          <div class="career-org">중소기업벤처부 창업지원센터</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2023 –</div>
+        <div>
+          <div class="career-role">교권보호 자문변호사</div>
+          <div class="career-org">인천교육청</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2024 –</div>
+        <div>
+          <div class="career-role">중재인</div>
+          <div class="career-org">대한상사중재원 (2024–2027)</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2024 –</div>
+        <div>
+          <div class="career-role">전문위원</div>
+          <div class="career-org">대한건설안전학회</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 학력 -->
+    <div>
+      <div class="career-section-title reveal">학력 &amp; 연수</div>
+
+      <div class="career-item reveal">
+        <div class="career-year">2000</div>
+        <div>
+          <div class="career-role">졸업</div>
+          <div class="career-org">진주 대아고등학교</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2006</div>
+        <div>
+          <div class="career-role">법과대학 졸업</div>
+          <div class="career-org">서울대학교</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2008</div>
+        <div>
+          <div class="career-role">제50회 사법시험 합격</div>
+          <div class="career-org"></div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2011</div>
+        <div>
+          <div class="career-role">제40기 사법연수원 수료</div>
+          <div class="career-org"></div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2022</div>
+        <div>
+          <div class="career-role">중대재해처벌법 전문가과정 1기</div>
+          <div class="career-org">연세대학교</div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-year">2023</div>
+        <div>
+          <div class="career-role">중재전문가 아카데미 20기</div>
+          <div class="career-org">대한상사중재원</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section id="practice">
+  <div class="section-label reveal">Practice Areas</div>
+  <h2 class="section-title reveal" style="color:var(--paper);margin-bottom:3rem;">주요 업무분야</h2>
+
+  <div class="practice-grid">
+    <div class="practice-item reveal">
+      <div class="practice-num">01</div>
+      <div class="practice-name">민·형사 소송</div>
+      <div class="practice-desc">일반 민사 · 형사 소송<br>행정심판 및 행정소송</div>
+    </div>
+    <div class="practice-item reveal">
+      <div class="practice-num">02</div>
+      <div class="practice-name">인사·노무</div>
+      <div class="practice-desc">임금 · 부당해고 · 직장내 괴롭힘<br>불법파견 · 기간제법</div>
+    </div>
+    <div class="practice-item reveal">
+      <div class="practice-num">03</div>
+      <div class="practice-name">산업안전</div>
+      <div class="practice-desc">산업안전보건법<br>중대재해처벌법 대응</div>
+    </div>
+    <div class="practice-item reveal">
+      <div class="practice-num">04</div>
+      <div class="practice-name">건설·부동산</div>
+      <div class="practice-desc">공사대금 · 하자소송 · 개발사업<br>건설 관계 법령 자문</div>
+    </div>
+    <div class="practice-item reveal">
+      <div class="practice-num">05</div>
+      <div class="practice-name">공정거래·하도급</div>
+      <div class="practice-desc">하도급법 · 가맹사업법<br>약관규제법 · 불공정거래행위</div>
+    </div>
+    <div class="practice-item reveal">
+      <div class="practice-num">06</div>
+      <div class="practice-name">기업자문·M&amp;A</div>
+      <div class="practice-desc">상법 · 자본시장법<br>주주총회 및 이사회 운영</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-label reveal">Writing</div>
+  <h2 class="section-title reveal">글</h2>
+
+  <div class="blog-grid">
+    <div class="blog-placeholder reveal">
+      <span>준비 중입니다</span>
+      법률 인사이트, 판례 분석, 업무 경험을 담은 글을 곧 공유하겠습니다.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-text reveal">
+    <h2>상담 문의</h2>
+    <p>기업 법무, 분쟁 해결, 자문 등<br>편하게 연락주세요.</p>
+  </div>
+  <div class="contact-details reveal">
+    <div class="contact-row">
+      <span class="contact-icon">Tel</span>
+      <span class="contact-info"><a href="tel:0234782001">02-3478-2001</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-icon">Fax</span>
+      <span class="contact-info">070-8240-2002</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-icon">Email</span>
+      <span class="contact-info"><a href="mailto:hyo@yehunlaw.com">hyo@yehunlaw.com</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-icon">Addr</span>
+      <span class="contact-info">서울 서초구 남부순환로 2583<br>서희타워 14층 · 법무법인 예헌</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Kim Ji-hyo. All rights reserved.</span>
+  <span><a href="https://yehunlaw.com" target="_blank">법무법인 예헌</a></span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,.08)' : 'none';
+  });
+</script>
+</body>
+</html>
