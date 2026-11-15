@@ -832,6 +832,88 @@
     text-underline-offset: 3px;
   }
 
+  /* ── PRESS ── */
+  .press {
+    padding: 80px 0 12px;
+    text-align: center;
+  }
+
+  .press .section-title { margin: 0.35rem 0 1.4rem; }
+
+  .press-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 1.8rem 1.7rem 1.55rem;
+    text-align: left;
+  }
+
+  .press-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .press-meta time {
+    font-size: 0.86rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .press-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .press-desc {
+    margin-top: 0.85rem;
+    color: var(--body);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .press-quote {
+    margin: 1.15rem 0 0;
+    padding: 0.15rem 0 0.15rem 0.95rem;
+    border-left: 2px solid var(--navy);
+  }
+
+  .press-quote p {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  .press-quote cite {
+    display: block;
+    margin-top: 0.45rem;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .press-by {
+    margin-top: 0.95rem;
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+
+  .press-link {
+    display: inline-flex;
+    margin-top: 0.85rem;
+    color: var(--navy);
+    font-weight: 500;
+    text-underline-offset: 3px;
+  }
+
   /* ── CONTACT ── */
   .contact {
     padding: 72px 0 48px;
@@ -1046,6 +1128,8 @@
     .footer-card { padding: 1.6rem 1.15rem 1rem; }
 
     .blog-card { padding: 2.2rem 1.2rem; }
+
+    .press-card { padding: 1.35rem 1.15rem 1.2rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1086,6 +1170,7 @@
           <li><a href="#about">소개</a></li>
           <li><a href="#career">경력</a></li>
           <li><a href="#practice">업무분야</a></li>
+          <li><a href="#press">언론</a></li>
           <li><a href="#blog">글</a></li>
           <li><a href="#contact">연락처</a></li>
         </ul>
@@ -1393,6 +1478,27 @@
     </div>
   </section>
 
+  <section class="press" id="press" aria-labelledby="press-title">
+    <div class="container">
+      <p class="career-kicker">언론</p>
+      <h2 class="section-title" id="press-title">언론 보도</h2>
+      <article class="press-card">
+        <p class="press-meta">
+          <span class="post-cat">법률신문</span>
+          <time datetime="2026-06-04">2026.06.04</time>
+        </p>
+        <h3>“‘모르는 것 아는 척 안 하기’가 중요”</h3>
+        <p class="press-desc">법률신문 2026 로펌 컨수머 리포트 ‘최고의 변호사’ 선정 (기업 법무 담당자 추천 기반 조사)</p>
+        <blockquote class="press-quote">
+          <p>“고객이 저보다 훨씬 많이 아신다는 사실을 잊지 않으려고 합니다.”</p>
+          <cite>김지효 변호사, 법률신문 인터뷰</cite>
+        </blockquote>
+        <p class="press-by">조한주 기자</p>
+        <a class="press-link" href="https://www.lawtimes.co.kr/news/articleView.html?idxno=221462" target="_blank" rel="noopener noreferrer">기사 보기</a>
+      </article>
+    </div>
+  </section>
+
   <section class="blog" id="blog" aria-labelledby="blog-title">
     <div class="container">
       <h2 class="section-title" id="blog-title">글</h2>
@@ -1463,6 +1569,7 @@
             <li><a href="#career">경력</a></li>
             <li><a href="#practice">업무분야</a></li>
             <li><a href="#roles">활동</a></li>
+            <li><a href="#press">언론</a></li>
             <li><a href="#blog">글</a></li>
             <li><a href="#contact">연락처</a></li>
           </ul>
