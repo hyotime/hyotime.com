@@ -484,36 +484,30 @@
   .about { padding: 72px 0 28px; }
 
   .about-card {
-    display: grid;
-    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-    gap: 12px;
-    padding: 16px;
+    padding: 2.55rem 2.75rem 2.15rem;
     background: var(--navy-deep);
     color: #fff;
     border-radius: 28px;
   }
 
-  .about-photo {
-    position: relative;
-    min-height: 280px;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #2a3648;
+  .about-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    column-gap: 3.25rem;
+    align-items: center;
   }
 
-  .about-photo img {
-    position: absolute;
-    left: 50%;
-    top: 34%;
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    max-width: none;
-    transform: translate(-47%, -24%);
-  }
+  .about-lead { grid-column: 1; grid-row: 1; min-width: 0; }
 
-  .about-copy { padding: 28px 28px 24px 18px; }
+  .about-copy > .about-meta { grid-column: 2; grid-row: 1 / span 2; }
+
+  .about-copy > .text-link {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    justify-self: start;
+    margin-top: 1.45rem;
+  }
 
   .kicker {
     font-size: 0.78rem;
@@ -533,7 +527,7 @@
   }
 
   .about-motto {
-    margin: 1.15rem 0 0.4rem;
+    margin: 1.15rem 0 0;
     padding-left: 0.95rem;
     border-left: 2px solid rgba(255, 255, 255, 0.45);
   }
@@ -560,7 +554,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.95rem 1.4rem;
-    margin-top: 1.4rem;
+    min-width: 0;
+    margin: 0;
   }
 
   .about-meta div:first-child,
@@ -583,8 +578,6 @@
     color: #fff;
     text-underline-offset: 3px;
   }
-
-  .about-copy .text-link { margin-top: 1.35rem; }
 
   .text-link {
     display: inline-flex;
@@ -1026,12 +1019,19 @@
   .footer-bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 1.8rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     font-size: 0.8rem;
+  }
+
+  .footer-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
   }
 
   @media (max-width: 960px) {
@@ -1080,17 +1080,20 @@
     .hero { padding-top: 36px; }
 
     .hero-grid,
-    .about-card,
     .career-grid,
     .footer-grid {
       grid-template-columns: 1fr;
     }
 
-    .about-photo { height: 420px; }
-
     .post-grid { grid-template-columns: 1fr; }
 
-    .about-copy { padding: 8px 10px 12px; }
+    .about-card { padding: 1.55rem 1.25rem 1.4rem; }
+
+    .about-copy { display: block; }
+
+    .about-meta { margin-top: 1.4rem; }
+
+    .about-copy > .text-link { margin-top: 1.35rem; }
 
     .practice-grid { grid-template-columns: 1fr 1fr; }
 
@@ -1258,16 +1261,15 @@
   <section class="about" id="about" aria-labelledby="about-title">
     <div class="container">
       <article class="about-card">
-        <div class="about-photo">
-          <img src="profile.jpg" width="640" height="960" alt="" loading="lazy">
-        </div>
         <div class="about-copy">
-          <p class="kicker">소개</p>
-          <h2 id="about-title">변호사 김지효</h2>
-          <blockquote class="about-motto">
-            <p>"우리 지금 여기에 진심을"</p>
-            <cite>김지효 변호사의 좌우명</cite>
-          </blockquote>
+          <div class="about-lead">
+            <p class="kicker">소개</p>
+            <h2 id="about-title">변호사 김지효</h2>
+            <blockquote class="about-motto">
+              <p>"우리 지금 여기에 진심을"</p>
+              <cite>김지효 변호사의 좌우명</cite>
+            </blockquote>
+          </div>
           <dl class="about-meta">
             <div>
               <dt>소속</dt>
@@ -1597,7 +1599,10 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Kim Ji-hyo. All rights reserved.</span>
+        <div class="footer-notes">
+          <span>© 2026 Kim Ji-hyo. All rights reserved.</span>
+          <span>광고책임변호사: 이계형</span>
+        </div>
         <a href="https://yehunlaw.com" target="_blank" rel="noopener noreferrer">법무법인 예헌</a>
       </div>
     </div>
