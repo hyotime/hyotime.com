@@ -718,52 +718,6 @@
     line-height: 1.5;
   }
 
-  /* ── 대외 활동 ── */
-  .roles {
-    padding: 80px 0 30px;
-    text-align: center;
-  }
-
-  .roles .section-title { margin: 0.4rem 0 1.5rem; }
-
-  .role-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 16px;
-    text-align: left;
-  }
-
-  .role-card {
-    grid-column: span 2;
-    background: var(--white);
-    border-radius: 20px;
-    padding: 1.45rem 1.35rem 1.3rem;
-  }
-
-  .role-card:nth-child(4) { grid-column: 2 / span 2; }
-  .role-card:nth-child(5) { grid-column: 4 / span 2; }
-
-  .role-card .year {
-    display: block;
-    margin-bottom: 0.55rem;
-  }
-
-  .role-card h3 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    line-height: 1.4;
-  }
-
-  .role-card p {
-    margin-top: 0.35rem;
-    color: var(--muted);
-    font-size: 0.92rem;
-    line-height: 1.55;
-  }
-
   /* ── BLOG ── */
   .blog {
     padding: 72px 0 30px;
@@ -1115,12 +1069,6 @@
 
     .practice-grid { grid-template-columns: 1fr 1fr; }
 
-    .role-grid { grid-template-columns: 1fr 1fr; }
-
-    .role-card,
-    .role-card:nth-child(4),
-    .role-card:nth-child(5) { grid-column: auto; }
-
     .stats { grid-template-columns: 1fr 1fr; padding: 0.6rem 0; }
 
     .stats li { padding: 1.15rem 0.7rem; }
@@ -1133,8 +1081,7 @@
   }
 
   @media (max-width: 640px) {
-    .practice-grid,
-    .role-grid { grid-template-columns: 1fr; }
+    .practice-grid { grid-template-columns: 1fr; }
 
     .practice-card { min-height: 0; }
 
@@ -1211,7 +1158,7 @@
         <div class="hero-rule" aria-hidden="true"></div>
         <p class="eyebrow">Attorney at Law</p>
         <h1 id="hero-name">김지효</h1>
-        <p class="hero-roman">Ji-hyo Kim</p>
+        <p class="hero-roman">Jihyo Kim</p>
         <p class="hero-role">파트너 변호사 · 법무법인 예헌</p>
         <p class="hero-rest">어느 순간이건, 고객의 고민을 근본적으로 해결합니다.</p>
         <div class="cta-row">
@@ -1339,42 +1286,37 @@
             <li>
               <span class="year">2016–2017</span>
               <div>
-                <p class="role">멘토변호사</p>
-                <p class="org">중소기업벤처부 창업지원센터</p>
+                <p class="role">중소기업벤처부 창업지원센터 멘토변호사</p>
               </div>
             </li>
             <li>
               <span class="year">2023–2024</span>
               <div>
-                <p class="role">교권보호 자문변호사</p>
-                <p class="org">인천교육청</p>
+                <p class="role">인천교육청 교권보호 자문변호사</p>
               </div>
             </li>
             <li>
               <span class="year">2024 –</span>
               <div>
-                <p class="role">중재인</p>
-                <p class="org">대한상사중재원 (2024–2027)</p>
+                <p class="role">대한상사중재원 중재인 (2024–2027)</p>
               </div>
             </li>
             <li>
               <span class="year">2024 –</span>
               <div>
-                <p class="role">전문위원</p>
-                <p class="org">대한건설안전학회</p>
+                <p class="role">대한건설안전학회 전문위원</p>
               </div>
             </li>
             <li>
               <span class="year">2024–2025</span>
               <div>
-                <p class="role">교권보호위원회 위원</p>
-                <p class="org">서울 강동송파교육청</p>
+                <p class="role">서울 강동송파교육청 교권보호위원회 위원</p>
               </div>
             </li>
           </ul>
         </article>
         <article class="panel">
-          <h3>학력 &amp; 연수</h3>
+          <h3>학력</h3>
           <ul class="timeline">
             <li>
               <span class="year">2000</span>
@@ -1462,40 +1404,6 @@
             <path d="M5 12h14M13 6l6 6-6 6"/>
           </svg>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="roles" id="roles" aria-labelledby="roles-title">
-    <div class="container">
-      <p class="career-kicker">활동</p>
-      <h2 class="section-title" id="roles-title">위원 · 중재 · 자문</h2>
-      <div class="role-grid">
-        <article class="role-card">
-          <span class="year">2024 –</span>
-          <h3>중재인</h3>
-          <p>대한상사중재원 (2024–2027)</p>
-        </article>
-        <article class="role-card">
-          <span class="year">2024 –</span>
-          <h3>전문위원</h3>
-          <p>대한건설안전학회</p>
-        </article>
-        <article class="role-card">
-          <span class="year">2024–2025</span>
-          <h3>교권보호위원회 위원</h3>
-          <p>서울 강동송파교육청</p>
-        </article>
-        <article class="role-card">
-          <span class="year">2023–2024</span>
-          <h3>교권보호 자문변호사</h3>
-          <p>인천교육청</p>
-        </article>
-        <article class="role-card">
-          <span class="year">2016–2017</span>
-          <h3>멘토변호사</h3>
-          <p>중소기업벤처부 창업지원센터</p>
-        </article>
       </div>
     </div>
   </section>
@@ -1613,7 +1521,6 @@
             <li><a href="#about">소개</a></li>
             <li><a href="#career">경력</a></li>
             <li><a href="#practice">업무분야</a></li>
-            <li><a href="#roles">활동</a></li>
             <li><a href="#press">언론</a></li>
             <li><a href="#blog">글</a></li>
             <li><a href="#contact">연락처</a></li>
