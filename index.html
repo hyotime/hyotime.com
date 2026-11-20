@@ -356,18 +356,8 @@
     margin-bottom: 1rem;
   }
 
-  .hero-motto {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(2.15rem, 3.6vw, 3.35rem);
-    line-height: 1.35;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    text-wrap: balance;
-  }
-
   .hero h1 {
-    margin-top: 1.15rem;
+    margin-top: 0;
     font-family: var(--serif);
     font-weight: 600;
     font-size: clamp(1.7rem, 2.4vw, 2.35rem);
@@ -494,19 +484,21 @@
     display: grid;
     grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
     column-gap: 3.25rem;
-    align-items: center;
+    align-items: start;
   }
 
-  .about-lead { grid-column: 1; grid-row: 1; min-width: 0; }
+  .about-lead { display: contents; }
 
-  .about-copy > .about-meta { grid-column: 2; grid-row: 1 / span 2; }
+  .about-heading { grid-column: 1; grid-row: 1; min-width: 0; align-self: start; }
+
+  .about-copy > .about-meta { grid-column: 2; grid-row: 1; align-self: start; }
 
   .about-copy > .text-link {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 3;
     align-self: start;
     justify-self: start;
-    margin-top: 1.45rem;
+    margin-top: 1.55rem;
   }
 
   .kicker {
@@ -527,28 +519,35 @@
   }
 
   .about-motto {
-    margin: 1.15rem 0 0;
-    padding-left: 0.95rem;
-    border-left: 2px solid rgba(255, 255, 255, 0.45);
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 2.35rem 0 0;
+    padding: 0.1rem 0 0.1rem 1.15rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.42);
   }
 
-  .about-motto p {
+  .about-motto-title {
     font-family: var(--serif);
     font-weight: 600;
-    font-size: clamp(1.35rem, 2vw, 1.7rem);
-    line-height: 1.45;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.95rem, 3.3vw, 2.75rem);
+    line-height: 1.4;
+    letter-spacing: -0.03em;
     color: #fff;
+    text-wrap: balance;
   }
 
-  .about-motto cite {
-    display: block;
-    margin-top: 0.45rem;
-    font-style: normal;
-    font-size: 0.82rem;
-    letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.7);
+  .about-verses { margin-top: 1.2rem; max-width: 40rem; }
+
+  .about-verses p {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.02rem, 1.4vw, 1.14rem);
+    line-height: 2.05;
+    letter-spacing: -0.015em;
+    color: rgba(255, 255, 255, 0.9);
   }
+
+  .about-verses p + p { margin-top: 1.2rem; }
 
   .about-meta {
     display: grid;
@@ -1104,6 +1103,12 @@
 
     .about-copy { display: block; }
 
+    .about-lead { display: block; }
+
+    .about-motto { margin-top: 1.35rem; padding-left: 0.95rem; }
+
+    .about-verses { max-width: none; }
+
     .about-meta { margin-top: 1.4rem; }
 
     .about-copy > .text-link { margin-top: 1.35rem; }
@@ -1205,7 +1210,6 @@
       <div>
         <div class="hero-rule" aria-hidden="true"></div>
         <p class="eyebrow">Attorney at Law</p>
-        <p class="hero-motto">우리 지금 여기에 진심을 —</p>
         <h1 id="hero-name">김지효</h1>
         <p class="hero-roman">Ji-hyo Kim</p>
         <p class="hero-role">파트너 변호사 · 법무법인 예헌</p>
@@ -1230,11 +1234,16 @@
       <article class="about-card">
         <div class="about-copy">
           <div class="about-lead">
-            <p class="kicker">소개</p>
-            <h2 id="about-title">변호사 김지효</h2>
+            <div class="about-heading">
+              <p class="kicker">소개</p>
+              <h2 id="about-title">변호사 김지효</h2>
+            </div>
             <blockquote class="about-motto">
-              <p>"우리 지금 여기에 진심을"</p>
-              <cite>김지효 변호사의 좌우명</cite>
+              <p class="about-motto-title">"우리 지금 여기에 진심을"</p>
+              <div class="about-verses">
+                <p>어제의 후회도, 내일의 걱정도 잠시 내려놓으셔도 됩니다.<br>지금 이 자리에 마주 앉은 당신의 이야기가<br>제게는 가장 중요한 사건입니다.</p>
+                <p>같은 시간, 같은 자리에 함께 있는 동안<br>당신의 무게를 함께 들겠습니다.<br>우리 지금, 여기에 진심을.</p>
+              </div>
             </blockquote>
           </div>
           <dl class="about-meta">
@@ -1598,7 +1607,7 @@
       <div class="footer-grid">
         <div>
           <p class="footer-brand">김지효</p>
-          <p>파트너 변호사 · 법무법인 예헌<br>우리 지금 여기에 진심을</p>
+          <p>파트너 변호사 · 법무법인 예헌</p>
         </div>
         <div>
           <h2>바로가기</h2>
